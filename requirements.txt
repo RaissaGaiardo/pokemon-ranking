@@ -1,0 +1,7 @@
+pandas
+requests
+sqlalchemy
+psycopg2-binary
+unidecode
+google-cloud-bigquery
+

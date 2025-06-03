@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_pokemon
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Ams83
+      POSTGRES_DB: Ranking_pokemon
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - pokemon-network
+
+  app:
+    build: .
+    container_name: pokemon_pipeline
+    depends_on:
+      - db
+    volumes:
+      - ./credentials:/app/credentials:ro
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /app/credentials/chave_teste_dev.json
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Ams83
+      POSTGRES_DB: Ranking_pokemon
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+    networks:
+      - pokemon-network
+
+volumes:
+  pgdata:
+
+networks:
+  pokemon-network:
+    driver: bridge
