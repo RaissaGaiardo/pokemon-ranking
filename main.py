@@ -7,8 +7,10 @@ from google.cloud import bigquery
 from sqlalchemy import create_engine
 
 
-if "GOOGLE_APPLICATION_CREDENTIALS" not in os.environ:
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\issag\OneDrive\Área de Trabalho\pokemon-projeto\novo-pokemon\credentials\chave_teste_dev.json"
+#3if "GOOGLE_APPLICATION_CREDENTIALS" not in os.environ:
+   #3 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\issag\OneDrive\Área de Trabalho\pokemon-projeto\novo-pokemon\credentials\chave_teste_dev.json"
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/app/credentials/chave_teste_dev.json"
 
 
 # CONFIGURAÇÕES DO BANCO via variáveis de ambiente

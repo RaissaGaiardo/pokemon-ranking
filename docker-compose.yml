@@ -16,6 +16,14 @@ services:
     networks:
       - pokemon-network
 
+  pokemon_pipeline:
+    build: .
+    volumes:
+      - ./credentials:/app/credentials
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /app/credentials/chave_teste_dev.json
+
+
   app:
     build: .
     container_name: pokemon_pipeline

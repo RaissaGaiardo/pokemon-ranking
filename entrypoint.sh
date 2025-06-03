@@ -1,6 +1,14 @@
 #!/bin/bash
-# Inicia o cron em background
+
+# Cria o arquivo de log se não existir
+touch /app/cron.log
+
+# Inicia o serviço cron em background
 service cron start
 
-# Mantém o container rodando mostrando o log do cron
+# Exibe o log para acompanhar em tempo real
 tail -f /app/cron.log
+
+#!/bin/bash
+python /app/main.py
+tail -f /dev/null  # Mantém o container "vivo"

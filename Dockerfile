@@ -6,7 +6,7 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-# Copia apenas os arquivos relevantes
+
 COPY main.py /app/
 COPY requirements.txt /app/
 COPY entrypoint.sh /entrypoint.sh
